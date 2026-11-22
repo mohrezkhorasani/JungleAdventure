@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>🌲 استودیوی بازی‌ساز جنگل دانایی | ویژه آموزگاران</title>
+  <style>
+    __EMBEDDED_FONT_CSS__
+
+    /* ==================================================
+       MOBILE-FIRST BASE STYLES (320px - 599px)
+       ================================================== */
+    :root {
+      --primary: #2e7d32;
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --accent: #ff9800;
+      --wood: #5d4037;
+      --bg: #f4fbf4;
+      --card-bg: #ffffff;
+      --text: #263238;
+      --text-muted: #546e7a;
+      --border: #c8e6c9;
+      --danger: #e53935;
+      --font-family: 'VazirFont', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 80px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* HEADER (Mobile-first stacked & compact) */
+    header {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 60%, #388e3c 100%);
+      color: white;
+      padding: 12px 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      background: #ffb300;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      flex-shrink: 0;
+    }
+
+    .logo-titles h1 {
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .logo-titles p {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* BUTTONS (Mobile-first touch-friendly min 44px) */
+    .btn {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      min-height: 42px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex: 1 1 auto;
+      text-align: center;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-export {
+      background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+      color: white;
+      font-weight: 800;
+      flex-basis: 100%;
+    }
+
+    .btn-preview {
+      background: #e8f5e9;
+      color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-danger {
+      background: #ffebee;
+      color: var(--danger);
+      border: 1px solid #ffcdd2;
+    }
+
+    /* TABS (Mobile-first neat grid, visible at a glance without sideways scroll) */
+    .container {
+      width: 100%;
+      padding: 12px;
+      margin: 0 auto;
+    }
+
+    .tabs-wrapper {
+      margin-bottom: 16px;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .tab-btn {
+      background: white;
+      border: 1.5px solid var(--border);
+      padding: 10px 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+      text-align: center;
+      min-height: 42px;
+    }
+
+    .tab-btn.active {
+      color: white;
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(46, 125, 50, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* FORM (Mobile-first 1-column) */
+    .form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .form-group label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .form-control {
+      padding: 10px 12px;
+      border: 1.5px solid #cfd8dc;
+      border-radius: 10px;
+      font-size: 16px !important; /* Prevents mobile zoom on iOS/Android */
+      outline: none;
+      transition: all 0.2s;
+      background: #fafafa;
+      width: 100%;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+    }
+
+    /* HERO SELECTOR CARDS */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .hero-card {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 8px 4px;
+      text-align: center;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .hero-card.selected {
+      border-color: var(--primary);
+      background: #e8f5e9;
+    }
+
+    .hero-card .icon {
+      font-size: 28px;
+      margin-bottom: 2px;
+    }
+
+    .hero-card .name {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #37474f;
+    }
+
+    /* ANIMALS LIST */
+    .animals-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .animal-card {
+      border: 1.5px solid #cfd8dc;
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #fff;
+    }
+
+    .animal-card.selected {
+      border-color: var(--primary);
+    }
+
+    .animal-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .animal-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #f1f8e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    /* QUESTIONS */
+    .questions-toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+      background: #e8f5e9;
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .question-card {
+      border: 1.5px solid #cfd8dc;
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #ffffff;
+    }
+
+    .question-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .q-actions {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .btn-action-sm {
+      padding: 4px 6px;
+      font-size: 11px;
+      border-radius: 6px;
+      border: 1px solid #cfd8dc;
+      background: white;
+      cursor: pointer;
+      min-height: 30px;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: 1.5px solid #eceff1;
+      border-radius: 10px;
+      background: #fafafa;
+      min-height: 44px;
+    }
+
+    .option-item.correct {
+      border-color: #4caf50;
+      background: #e8f5e9;
+    }
+
+    .option-item input[type="radio"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .option-item input[type="text"] {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      font-size: 15px !important;
+    }
+
+    /* PREVIEW MODAL (Mobile-first full screen) */
+    .preview-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+
+    .preview-modal.open {
+      display: flex;
+    }
+
+    .preview-content {
+      background: white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .preview-header {
+      background: #1b5e20;
+      color: white;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 6px;
+    }
+
+    .preview-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      flex: 1;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #263238;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 1000;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==================================================
+       TABLET & DESKTOP ENHANCEMENTS (>= 600px)
+       ================================================== */
+    @media (min-width: 600px) {
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header-actions {
+        width: auto;
+      }
+      .btn-export {
+        flex-basis: auto;
+      }
+      .tabs {
+        display: flex;
+        grid-template-columns: none;
+        gap: 8px;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 2px;
+      }
+      .tab-btn {
+        border-radius: 12px 12px 0 0;
+        border-bottom: none;
+        background: transparent;
+        border-color: transparent;
+        padding: 10px 18px;
+        font-size: 14px;
+      }
+      .tab-btn.active {
+        color: var(--primary-dark);
+        background: white;
+        border: 2px solid var(--border);
+        border-bottom: 3px solid var(--primary);
+        box-shadow: none;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .animals-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .questions-toolbar {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .preview-modal {
+        padding: 16px;
+      }
+      .preview-content {
+        max-width: 960px;
+        height: 92vh;
+        border-radius: 20px;
+      }
+      .preview-content.mobile-view {
+        max-width: 400px;
+        height: 750px;
+        border-radius: 36px;
+        border: 10px solid #263238;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 1080px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-badge">🌲</div>
+        <div class="logo-titles">
+          <h1>استودیوی «جنگل دانایی»</h1>
+          <p>طراحی بازی‌های ماجراجویانه کاملاً آفلاین و ریسپانسیو ویژه دبستان</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="exportJSON()">💾 ذخیره پروژه</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">📥 باز کردن</button>
+        <input type="file" id="fileInput" accept=".json" style="display:none;" onchange="importJSON(event)">
+        <button class="btn btn-preview" onclick="openPreview()">▶️ پیش‌نمایش</button>
+        <button class="btn btn-export" onclick="exportHTMLGame()">🚀 دانلود فایل بازی دانش‌آموزان</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <div class="tabs-wrapper">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-settings', this)">⚙️ تنظیمات و قهرمان</button>
+        <button class="tab-btn" onclick="switchTab('tab-animals', this)">🦁 حیوانات و سناریوها (<span id="animalCountBadge">5</span>)</button>
+        <button class="tab-btn" onclick="switchTab('tab-questions', this)">📝 بانک سوالات (<span id="qCountBadge">0</span>)</button>
+        <button class="tab-btn" onclick="switchTab('tab-bulk', this)">📋 ورود متنی سریع</button>
+        <button class="tab-btn" onclick="switchTab('tab-guide', this)">💡 راهنما</button>
+      </div>
+    </div>
+
+    <!-- TAB 1: SETTINGS -->
+    <section id="tab-settings" class="tab-pane active">
+      <div class="card">
+        <div class="card-title">
+          <span>🎯 مشخصات درس و بازی</span>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>عنوان ماجراجویی (روی صفحه اول بازی):</label>
+            <input type="text" id="gameTitle" class="form-control" placeholder="مثال: ماجراجویی در جنگل شگفت‌انگیز دانایی" value="" oninput="projectData.title = this.value">
+          </div>
+          <div class="form-group">
+            <label>مبحث درس:</label>
+            <input type="text" id="lessonTopic" class="form-control" placeholder="مثال: ریاضی و علوم شاد دبستان" value="" oninput="projectData.lesson = this.value">
+          </div>
+          <div class="form-group">
+            <label>نام آموزگار یا مدرسه (در لوح افتخار):</label>
+            <input type="text" id="teacherName" class="form-control" placeholder="مثال: آموزگار مهربان شما" value="" oninput="projectData.teacher = this.value">
+          </div>
+          <div class="form-group">
+            <label>تعداد جان‌های اولیه دانش‌آموز:</label>
+            <select id="initialLives" class="form-control" onchange="projectData.initialLives = parseInt(this.value)">
+              <option value="3">۳ جان (استاندارد)</option>
+              <option value="4">۴ جان</option>
+              <option value="5" selected>۵ جان (خیلی دوستانه و بدون استرس)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>چیدمان حیوانات در بازی:</label>
+            <select id="randomizeOrder" class="form-control" onchange="projectData.randomize = (this.value === 'true')">
+              <option value="true" selected>تصادفی و پویا (هر بار جدید)</option>
+              <option value="false">ترتیب ثابت طبق لیست</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top: 14px;">
+          <label style="font-size: 13px; font-weight: 800; color: #2e7d32;">انتخاب کاراکتر قهرمان کودک:</label>
+          <div class="hero-grid">
+            <div class="hero-card selected" id="hero-card-squirrel" onclick="selectHero('squirrel')">
+              <div class="icon">🐿️</div>
+              <div class="name">سنجاب فندق</div>
+            </div>
+            <div class="hero-card" id="hero-card-rabbit" onclick="selectHero('rabbit')">
+              <div class="icon">🐰</div>
+              <div class="name">خرگوش پنبه</div>
+            </div>
+            <div class="hero-card" id="hero-card-fox" onclick="selectHero('fox')">
+              <div class="icon">🦊</div>
+              <div class="name">روباه دانا</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: ANIMALS -->
+    <section id="tab-animals" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>🐾 مدیریت حیوانات، موانع و دیالوگ‌ها</span>
+          <button class="btn btn-primary" style="padding: 6px 12px; font-size:12.5px;" onclick="openAddAnimalModal()">+ افزودن حیوان جدید</button>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px;">
+          می‌توانید دیالوگ آغازین و پیام تبریک هر حیوان را طبق درس خود شخصی‌سازی کنید.
+        </p>
+
+        <div class="animals-grid" id="animalsList"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: QUESTIONS -->
+    <section id="tab-questions" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>❓ بانک سوالات مسابقه</span>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="btn btn-secondary" style="background:#f1f8e9; color:#1b5e20; border:1px solid #c8e6c9;" onclick="loadPresetQuestions()">⚡ بارگذاری نمونه</button>
+            <button class="btn btn-primary" onclick="addNewQuestion()">+ افزودن سوال جدید</button>
+            <button class="btn btn-danger" style="padding: 6px 12px; font-size:12px;" onclick="clearAllQuestions()">🗑️ حذف همه سوالات</button>
+          </div>
+        </div>
+
+        <div class="questions-toolbar">
+          <input type="text" id="qSearchInput" class="form-control" style="background:white; flex:1;" placeholder="🔍 جستجو در متن سوالات..." oninput="filterQuestions()">
+          <div style="display: flex; gap: 6px; align-items: center;">
+            <span style="font-size: 12px; font-weight: bold; white-space: nowrap;">فیلتر حیوان:</span>
+            <select id="qAnimalFilter" class="form-control" style="background:white; padding: 6px 10px;" onchange="filterQuestions()">
+              <option value="all">همه حیوانات</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: BULK IMPORT -->
+    <section id="tab-bulk" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>📋 ورود سریع و دسته‌ای سوالات از طریق متن</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 10px;">
+          می‌توانید سوالات را در کادر زیر قرار دهید. علامت ستاره (*) قبل از گزینه نشان‌دهنده گزینه صحیح است:
+        </p>
+        <textarea id="bulkTextarea" class="form-control" style="height: 160px; font-size: 14px; line-height: 1.6;" placeholder="سوال: حاصل ۷ ضربدر ۸ چند می‌شود؟
+الف) ۵۴
+*ب) ۵۶
+ج) ۶۴
+د) ۴۸
+---
+سوال: آیا زمین به دور خورشید می‌چرخد؟
+*الف) صحیح
+ب) غلط"></textarea>
+        <div style="margin-top: 10px; display: flex; justify-content: flex-end;">
+          <button class="btn btn-primary" onclick="parseBulkQuestions()">📥 تبدیل و افزودن به بانک سوالات</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: GUIDE -->
+    <section id="tab-guide" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>📖 راهنمای گام‌به‌گام ساخت بازی و طراحی سوالات</span>
+        </div>
+        <div style="font-size: 13.5px; line-height: 1.9; color: #37474f;">
+          
+          <h4 style="color: #1b5e20; margin-bottom: 6px; font-size: 15px;">🚀 مراحل ساخت یک بازی جدید (از صفر تا صد):</h4>
+          <ol style="padding-right: 20px; margin-bottom: 16px;">
+            <li><strong>گام اول (تنظیمات درس):</strong> در تب «⚙️ تنظیمات و قهرمان»، عنوان درس و نام خود را مشخص کرده و کاراکتر قهرمان کودک (سنجاب فندق 🐿️، خرگوش پنبه 🐰 یا روباه دانا 🦊) را انتخاب کنید.</li>
+            <li><strong>گام دوم (حیوانات و سناریوها):</strong> در تب «🦁 حیوانات و سناریوها»، مشخص کنید کدام حیوانات نگهبان در مسیر باشند و هر کدام چند سوال بپرسند. حتی می‌توانید دیالوگ‌های کارتونی آن‌ها را تغییر دهید یا حیوان جدیدی اضافه کنید!</li>
+            <li><strong>گام سوم (طراحی سوالات):</strong> در تب «📝 بانک سوالات»، سوالات مسابقه را وارد کنید (توضیح کامل در پایین).</li>
+            <li><strong>گام چهارم (پیش‌نمایش زنده):</strong> روی دکمه «▶️ پیش‌نمایش» در بالای صفحه کلیک کنید تا بازی را همانند دانش‌آموزان در حالت گوشی موبایل یا رایانه تست کنید.</li>
+            <li><strong>گام پنجم (دانلود و ارسال برای بچه‌ها):</strong> دکمه نارنجی «🚀 دانلود فایل بازی دانش‌آموزان» را بزنید. یک فایل مستقل کم‌حجم HTML دریافت می‌کنید. آن را در پیام‌رسان‌های شاد، ایتا، بله، تلگرام یا روی فلش بگذارید. دانش‌آموزان با یک دابل‌کلیک بدون نیاز به اینترنت بازی می‌کنند!</li>
+          </ol>
+
+          <h4 style="color: #1b5e20; margin-bottom: 6px; font-size: 15px;">❓ نحوه ایجاد و ویرایش سوال در بانک سوالات:</h4>
+          <ul style="padding-right: 20px; margin-bottom: 16px;">
+            <li><strong>افزودن سوال جدید:</strong> دکمه «+ افزودن سوال جدید» را بزنید تا یک کارت سوال خالی با راهنمای طوسی (Placeholder) باز شود.</li>
+            <li><strong>انتخاب نوع سوال:</strong> در منوی نوع سوال، می‌توانید بین «۴ گزینه‌ای» یا «۲ گزینه‌ای (صحیح/غلط)» انتخاب کنید.</li>
+            <li><strong>مشخص کردن پاسخ درست:</strong> روی <strong>دایره رادیویی (🔘)</strong> کنار گزینه‌ای که پاسخ صحیح است کلیک کنید تا سبز شود.</li>
+            <li><strong>تخصیص سوال به حیوان خاص:</strong> در منوی کشویی «مربوط به حیوان»، می‌توانید تعیین کنید این سوال دقیقاً توسط کدام حیوان (مثلاً فقط شیر نگهبان یا فقط تمساح) پرسیده شود، یا روی حالت «همه (توزیع خودکار)» باشد.</li>
+            <li><strong>راهنمایی تشویقی حیوان:</strong> در کادر پایین هر سوال، می‌توانید یک راهنمایی دوستانه بنویسید تا اگر کودک اشتباه پاسخ داد، حیوان به او کمک کند.</li>
+            <li><strong>حذف یا تکثیر سوال:</strong> با دکمه 📋 می‌توانید از یک سوال کپی بگیرید و با دکمه 🗑️ آن را حذف کنید. همچنین با دکمه <strong>«🗑️ حذف همه سوالات»</strong> می‌توانید کل بانک سوالات را با تایید پاکسازی کنید.</li>
+          </ul>
+
+          <h4 style="color: #1b5e20; margin-bottom: 6px; font-size: 15px;">📋 ورود سریع و دسته‌ای سوالات (Bulk Import):</h4>
+          <p style="margin-bottom: 14px;">
+            اگر سوالات را از قبل در قالب متن یا فایل ورد دارید، به تب «📋 ورود متنی سریع» بروید و متن سوالات را در کادر کپی کنید (علامت <code>*</code> قبل از گزینه پاسخ درست). سیستم با یک کلیک همه آن‌ها را خودکار به کارت‌های سوال مسابقه تبدیل می‌کند.
+          </p>
+
+          <h4 style="color: #1b5e20; margin-bottom: 6px; font-size: 15px;">💾 ذخیره و بارگذاری پروژه:</h4>
+          <p>
+            برای اینکه هر هفته مجبور به تایپ مجدد نباشید، دکمه «💾 ذخیره پروژه» را بزنید تا یک فایل پشتیبان JSON روی کامپیوترتان ذخیره شود. هر زمان خواستید، با دکمه «📥 باز کردن» آن را بارگذاری و سوالات جدید را اضافه کنید.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ADD CUSTOM ANIMAL MODAL -->
+  <div id="animalModal" class="preview-modal">
+    <div style="background:white; border-radius:18px; max-width:420px; width:92%; padding:18px; box-shadow:0 10px 30px rgba(0,0,0,0.3); margin:auto;">
+      <h3 style="margin-bottom:12px; color:#1b5e20; font-size:16px;">🐾 افزودن حیوان یا مانع جدید</h3>
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>نام حیوان یا مانع:</label>
+        <input type="text" id="newAnimalName" class="form-control" placeholder="مثال: گرگ ناقلا" value="">
+      </div>
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>عنوان / نقش:</label>
+        <input type="text" id="newAnimalRole" class="form-control" placeholder="مثال: نگهبان صخره تاریک" value="">
+      </div>
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>شکلک / آیکون:</label>
+        <select id="newAnimalIcon" class="form-control">
+          <option value="🐺">🐺 گرگ</option>
+          <option value="🐢">🐢 لاک‌پشت</option>
+          <option value="🐍">🐍 مار</option>
+          <option value="🪵">🪵 تنه درخت</option>
+          <option value="🧙‍♂️">🧙‍♂️ پیرمرد دانا</option>
+          <option value="🦊">🦊 روباه</option>
+          <option value="🦇">🦇 خفاش</option>
+          <option value="🐉">🐉 اژدها</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>متن دیالوگ آغازین:</label>
+        <input type="text" id="newAnimalGreeting" class="form-control" placeholder="دیالوگ آغازین حیوان..." value="">
+      </div>
+      <div class="form-group" style="margin-bottom:12px;">
+        <label>متن پیام تبریک:</label>
+        <input type="text" id="newAnimalSuccess" class="form-control" placeholder="پیام تبریک پس از پاسخ صحیح..." value="">
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:8px;">
+        <button class="btn btn-secondary" style="background:#eceff1; color:#37474f;" onclick="closeAddAnimalModal()">انصراف</button>
+        <button class="btn btn-primary" onclick="saveNewAnimal()">ثبت حیوان</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW MODAL -->
+  <div id="previewModal" class="preview-modal">
+    <div class="preview-content" id="previewContainer">
+      <div class="preview-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:13px; font-weight:bold;">🎮 پیش‌نمایش</span>
+          <button class="btn btn-secondary" style="padding:2px 8px; font-size:11.5px; min-height:30px;" onclick="togglePreviewDevice()">📱 تغییر نمای موبایل / رایانه</button>
+        </div>
+        <button class="btn btn-danger" style="padding:2px 8px; font-size:12px; min-height:30px;" onclick="closePreview()">✕ بستن</button>
+      </div>
+      <iframe id="previewIframe" class="preview-iframe"></iframe>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">پیام</div>
+
+  <script>
+    // --- STATE ---
+    let projectData = __DEFAULT_PROJECT_DATA_JSON__;
+    let activeSearch = '';
+    let activeAnimalFilter = 'all';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Set initial placeholders from projectData so inputs remain empty for easy typing
+      if (projectData.title) document.getElementById('gameTitle').placeholder = projectData.title;
+      if (projectData.lesson) document.getElementById('lessonTopic').placeholder = projectData.lesson;
+      if (projectData.teacher) document.getElementById('teacherName').placeholder = projectData.teacher;
+      document.getElementById('gameTitle').value = '';
+      document.getElementById('lessonTopic').value = '';
+      document.getElementById('teacherName').value = '';
+      if (projectData.initialLives) document.getElementById('initialLives').value = String(projectData.initialLives);
+      if (projectData.randomize !== undefined) document.getElementById('randomizeOrder').value = String(projectData.randomize);
+
+      renderHeroSelection();
+      renderAnimals();
+      renderAnimalFilterOptions();
+      renderQuestions();
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // --- HERO SELECTION ---
+    function selectHero(hero) {
+      projectData.hero = hero;
+      renderHeroSelection();
+    }
+
+    function renderHeroSelection() {
+      ['squirrel', 'rabbit', 'fox'].forEach(h => {
+        const el = document.getElementById(`hero-card-${h}`);
+        if (el) {
+          if (projectData.hero === h) el.classList.add('selected');
+          else el.classList.remove('selected');
+        }
+      });
+    }
+
+    // --- ANIMALS ---
+    function renderAnimals() {
+      const container = document.getElementById('animalsList');
+      document.getElementById('animalCountBadge').innerText = projectData.animals.length;
+
+      container.innerHTML = projectData.animals.map((a, idx) => `
+        <div class="animal-card ${a.selected ? 'selected' : ''}" id="anim-card-${a.id}">
+          <div class="animal-header">
+            <div class="animal-avatar">${a.icon}</div>
+            <div style="flex:1;">
+              <h4 style="font-size:14.5px; font-weight:800;">${a.name}</h4>
+              <p style="font-size:11.5px; color:var(--text-muted);">${a.role || ''}</p>
+            </div>
+            ${a.isCustom ? `<button class="btn-action-sm" style="color:red;" onclick="deleteAnimal('${a.id}')">🗑️</button>` : ''}
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #eee; padding-top:8px;">
+            <label style="font-size:12px; font-weight:bold; cursor:pointer; display:flex; align-items:center; gap:6px;">
+              <input type="checkbox" ${a.selected ? 'checked' : ''} onchange="toggleAnimalSelect('${a.id}', this.checked)">
+              حضور در این بازی
+            </label>
+            <div style="display:flex; align-items:center; gap:4px; font-size:12px;">
+              <span>تعداد سوال:</span>
+              <select class="form-control" style="padding:2px 8px; width:55px; min-height:32px; font-size:14px !important;" onchange="updateAnimalCount('${a.id}', this.value)">
+                <option value="1" ${a.questionsCount == 1 ? 'selected' : ''}>۱</option>
+                <option value="2" ${a.questionsCount == 2 ? 'selected' : ''}>۲</option>
+                <option value="3" ${a.questionsCount == 3 ? 'selected' : ''}>۳</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:2px;">
+            <label style="font-size:11px; color:#546e7a;">دیالوگ ورودی:</label>
+            <input type="text" class="form-control" placeholder="دیالوگ آغازین حیوان..." value="${escapeHtml(a.greeting || '')}" oninput="updateAnimalGreeting('${a.id}', this.value)">
+          </div>
+
+          <div class="form-group">
+            <label style="font-size:11px; color:#546e7a;">پیام تبریک پس از عبور:</label>
+            <input type="text" class="form-control" placeholder="پیام تبریک حیوان..." value="${escapeHtml(a.success || '')}" oninput="updateAnimalSuccess('${a.id}', this.value)">
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleAnimalSelect(id, checked) {
+      const a = projectData.animals.find(x => x.id === id);
+      if (a) {
+        a.selected = checked;
+        const card = document.getElementById(`anim-card-${id}`);
+        if (checked) card.classList.add('selected');
+        else card.classList.remove('selected');
+      }
+    }
+
+    function updateAnimalCount(id, val) {
+      const a = projectData.animals.find(x => x.id === id);
+      if (a) a.questionsCount = parseInt(val);
+    }
+
+    function updateAnimalGreeting(id, val) {
+      const a = projectData.animals.find(x => x.id === id);
+      if (a) a.greeting = val;
+    }
+
+    function updateAnimalSuccess(id, val) {
+      const a = projectData.animals.find(x => x.id === id);
+      if (a) a.success = val;
+    }
+
+    function openAddAnimalModal() {
+      document.getElementById('newAnimalName').value = '';
+      document.getElementById('newAnimalRole').value = '';
+      document.getElementById('newAnimalGreeting').value = '';
+      document.getElementById('newAnimalSuccess').value = '';
+      document.getElementById('animalModal').classList.add('open');
+    }
+
+    function closeAddAnimalModal() {
+      document.getElementById('animalModal').classList.remove('open');
+    }
+
+    function saveNewAnimal() {
+      const name = document.getElementById('newAnimalName').value.trim();
+      if (!name) {
+        alert("لطفاً نام حیوان یا مانع را وارد کنید.");
+        return;
+      }
+      const id = 'custom_' + Date.now();
+      projectData.animals.push({
+        id: id,
+        name: name,
+        role: document.getElementById('newAnimalRole').value.trim() || 'مانع جنگل',
+        icon: document.getElementById('newAnimalIcon').value,
+        selected: true,
+        questionsCount: 1,
+        greeting: document.getElementById('newAnimalGreeting').value.trim() || 'سلام قهرمان! به سوالات من جواب بده!',
+        success: document.getElementById('newAnimalSuccess').value.trim() || 'آفرین! راه باز شد!',
+        isCustom: true
+      });
+      closeAddAnimalModal();
+      renderAnimals();
+      renderAnimalFilterOptions();
+      renderQuestions();
+      showToast("حیوان جدید با موفقیت اضافه شد!");
+    }
+
+    function deleteAnimal(id) {
+      if (confirm("آیا از حذف این حیوان اطمینان دارید؟")) {
+        projectData.animals = projectData.animals.filter(a => a.id !== id);
+        renderAnimals();
+        renderAnimalFilterOptions();
+        renderQuestions();
+      }
+    }
+
+    function renderAnimalFilterOptions() {
+      const select = document.getElementById('qAnimalFilter');
+      select.innerHTML = '<option value="all">همه حیوانات</option>' + 
+        projectData.animals.map(a => `<option value="${a.id}">${a.icon} ${a.name}</option>`).join('');
+    }
+
+    // --- QUESTIONS BANK ---
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      document.getElementById('qCountBadge').innerText = projectData.questions.length;
+
+      let filtered = projectData.questions.filter(q => {
+        const matchSearch = !activeSearch || q.text.toLowerCase().includes(activeSearch.toLowerCase());
+        const matchAnimal = (activeAnimalFilter === 'all') || (q.animalId === activeAnimalFilter);
+        return matchSearch && matchAnimal;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 24px; color: var(--text-muted);">
+            <div style="font-size: 36px; margin-bottom: 6px;">📝</div>
+            <p style="font-size: 14px; font-weight: bold;">هیچ سوالی با این مشخصات یافت نشد!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((q, idx) => `
+        <div class="question-card" id="q-card-${q.id}">
+          <div class="question-card-header">
+            <div style="display:flex; align-items:center; gap:6px;">
+              <span style="background:#e8f5e9; color:#1b5e20; padding:2px 8px; border-radius:10px; font-weight:800; font-size:11.5px;">سوال ${idx + 1}</span>
+              <span style="font-size:11.5px; color:#546e7a;">${getAnimalTag(q.animalId)}</span>
+            </div>
+            <div class="q-actions">
+              <button class="btn-action-sm" title="انتقال به بالا" onclick="moveQuestion(${q.id}, -1)">⬆️</button>
+              <button class="btn-action-sm" title="انتقال به پایین" onclick="moveQuestion(${q.id}, 1)">⬇️</button>
+              <button class="btn-action-sm" title="تکثیر سوال" onclick="duplicateQuestion(${q.id})">📋</button>
+              <button class="btn-action-sm" style="color:red;" title="حذف سوال" onclick="deleteQuestion(${q.id})">🗑️</button>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom:8px;">
+            <label>متن سوال:</label>
+            <input type="text" class="form-control" placeholder="متن سوال را اینجا بنویسید..." value="${escapeHtml(q.text)}" oninput="updateQField(${q.id}, 'text', this.value)">
+          </div>
+
+          <div style="display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+            <div class="form-group" style="flex:1; min-width:130px;">
+              <label>نوع سوال:</label>
+              <select class="form-control" style="font-size:14px !important;" onchange="changeQType(${q.id}, this.value)">
+                <option value="4choice" ${q.type === '4choice' ? 'selected' : ''}>۴ گزینه‌ای</option>
+                <option value="2choice" ${q.type === '2choice' ? 'selected' : ''}>۲ گزینه‌ای (صحیح/غلط)</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1; min-width:130px;">
+              <label>مربوط به حیوان:</label>
+              <select class="form-control" style="font-size:14px !important;" onchange="updateQField(${q.id}, 'animalId', this.value)">
+                <option value="all" ${!q.animalId || q.animalId === 'all' ? 'selected' : ''}>همه (توزیع خودکار)</option>
+                ${projectData.animals.map(a => `<option value="${a.id}" ${q.animalId === a.id ? 'selected' : ''}>${a.icon} ${a.name}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+
+          <label style="font-size:11.5px; font-weight:bold;">گزینه‌ها (روی دایره پاسخ درست بزنید):</label>
+          <div class="options-grid" id="options-grid-${q.id}">
+            ${q.options.map((opt, optIdx) => `
+              <div class="option-item ${q.correct === optIdx ? 'correct' : ''}" id="opt-item-${q.id}-${optIdx}">
+                <input type="radio" name="correct-${q.id}" ${q.correct === optIdx ? 'checked' : ''} onclick="setQCorrect(${q.id}, ${optIdx})">
+                <span style="font-weight:bold; font-size:12px; color:var(--text-muted);">${['الف', 'ب', 'ج', 'د'][optIdx] || (optIdx+1)}:</span>
+                <input type="text" placeholder="${['گزینه الف', 'گزینه ب', 'گزینه ج', 'گزینه د'][optIdx] || 'گزینه ' + (optIdx+1)}" value="${escapeHtml(opt)}" oninput="updateQOption(${q.id}, ${optIdx}, this.value)">
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="form-group" style="margin-top:8px;">
+            <label style="font-size:11.5px; color:#546e7a;">راهنمایی حیوان در صورت پاسخ اشتباه:</label>
+            <input type="text" class="form-control" placeholder="راهنمایی آموزشی در صورت پاسخ اشتباه..." value="${escapeHtml(q.hint || '')}" oninput="updateQField(${q.id}, 'hint', this.value)">
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getAnimalTag(animalId) {
+      if (!animalId || animalId === 'all') return '🌐 همه حیوانات';
+      const a = projectData.animals.find(x => x.id === animalId);
+      return a ? `${a.icon} ${a.name}` : '';
+    }
+
+    function updateQField(id, field, val) {
+      const q = projectData.questions.find(x => x.id === id);
+      if (q) q[field] = val;
+    }
+
+    function updateQOption(id, optIdx, val) {
+      const q = projectData.questions.find(x => x.id === id);
+      if (q && q.options[optIdx] !== undefined) {
+        q.options[optIdx] = val;
+      }
+    }
+
+    function setQCorrect(id, optIdx) {
+      const q = projectData.questions.find(x => x.id === id);
+      if (q) {
+        q.correct = optIdx;
+        q.options.forEach((_, i) => {
+          const item = document.getElementById(`opt-item-${id}-${i}`);
+          if (item) {
+            if (i === optIdx) item.classList.add('correct');
+            else item.classList.remove('correct');
+          }
+        });
+      }
+    }
+
+    function changeQType(id, type) {
+      const q = projectData.questions.find(x => x.id === id);
+      if (q) {
+        q.type = type;
+        if (type === '2choice') {
+          q.options = ['صحیح است', 'غلط است'];
+          q.correct = 0;
+        } else {
+          if (q.options.length < 4) {
+            q.options = ['', '', '', ''];
+            q.correct = 0;
+          }
+        }
+        renderQuestions();
+      }
+    }
+
+    function addNewQuestion() {
+      const newId = Date.now();
+      projectData.questions.push({
+        id: newId,
+        text: '',
+        type: '4choice',
+        animalId: 'all',
+        options: ['', '', '', ''],
+        correct: 0,
+        hint: ''
+      });
+      renderQuestions();
+      setTimeout(() => {
+        const el = document.getElementById(`q-card-${newId}`);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+
+    function deleteQuestion(id) {
+      if (confirm('آیا از حذف این سوال اطمینان دارید؟')) {
+        projectData.questions = projectData.questions.filter(x => x.id !== id);
+        renderQuestions();
+      }
+    }
+
+    function clearAllQuestions() {
+      if (projectData.questions.length === 0) {
+        alert('بانک سوالات هم‌اکنون خالی است.');
+        return;
+      }
+      if (confirm('آیا از حذف تمامی سوالات بانک سوالات اطمینان دارید؟ تمامی سوالات پاک خواهند شد.')) {
+        projectData.questions = [];
+        renderQuestions();
+        showToast('تمامی سوالات با موفقیت حذف شدند.');
+      }
+    }
+
+    function duplicateQuestion(id) {
+      const q = projectData.questions.find(x => x.id === id);
+      if (q) {
+        const copy = JSON.parse(JSON.stringify(q));
+        copy.id = Date.now();
+        if (copy.text) copy.text += ' (کپی)';
+        const idx = projectData.questions.findIndex(x => x.id === id);
+        projectData.questions.splice(idx + 1, 0, copy);
+        renderQuestions();
+        showToast('سوال تکثیر شد.');
+      }
+    }
+
+    function moveQuestion(id, direction) {
+      const idx = projectData.questions.findIndex(x => x.id === id);
+      if (idx < 0) return;
+      const targetIdx = idx + direction;
+      if (targetIdx >= 0 && targetIdx < projectData.questions.length) {
+        const temp = projectData.questions[idx];
+        projectData.questions[idx] = projectData.questions[targetIdx];
+        projectData.questions[targetIdx] = temp;
+        renderQuestions();
+      }
+    }
+
+    function filterQuestions() {
+      activeSearch = document.getElementById('qSearchInput').value.trim();
+      activeAnimalFilter = document.getElementById('qAnimalFilter').value;
+      renderQuestions();
+    }
+
+    function loadPresetQuestions() {
+      projectData.questions = [
+        {
+          "id": 1,
+          "text": "حاصل ضرب ۷ × ۸ چند می‌شود؟",
+          "type": "4choice",
+          "animalId": "lion",
+          "options": ["۵۴", "۵۶", "۶۴", "۴۸"],
+          "correct": 1,
+          "hint": "به جدول ضرب ۷ یا ۸ فکر کن: ۷ تا ۸ تا می‌شود ۵۶ تا!"
+        },
+        {
+          "id": 2,
+          "text": "کدام موجود زیر «پستاندار» است و توانایی پرواز دارد؟",
+          "type": "4choice",
+          "animalId": "lion",
+          "options": ["عقاب", "خفاش", "کبوتر", "سنجاقک"],
+          "correct": 1,
+          "hint": "خفاش تنها پستانداری است که بال دارد و تخم‌گذار نیست!"
+        },
+        {
+          "id": 3,
+          "text": "اگر یک کیک را به ۴ قسمت مساوی تقسیم کنیم و ۳ قسمت آن را بخوریم، چه کسری باقی مانده است؟",
+          "type": "4choice",
+          "animalId": "monkey",
+          "options": ["۱/۴ (یک چهارم)", "۳/۴ (سه چهارم)", "۲/۴ (دو چهارم)", "۴/۴ (کل کیک)"],
+          "correct": 0,
+          "hint": "از ۴ قسمت مساوی، فقط ۱ قسمت باقی مانده است."
+        },
+        {
+          "id": 4,
+          "text": "بزرگ‌ترین سیاره در منظومه شمسی کدام است؟",
+          "type": "4choice",
+          "animalId": "monkey",
+          "options": ["مریخ", "زمین", "مشتری (زاوش)", "زهره"],
+          "correct": 2,
+          "hint": "سیاره غول‌پیکر مشتری بزرگ‌ترین عضو منظومه شمسی است!"
+        },
+        {
+          "id": 5,
+          "text": "آیا خورشید یک ستاره است؟",
+          "type": "2choice",
+          "animalId": "crocodile",
+          "options": ["صحیح است", "غلط است"],
+          "correct": 0,
+          "hint": "بله! خورشید نزدیک‌ترین ستاره پرنور به زمین است."
+        },
+        {
+          "id": 6,
+          "text": "گیاهان برای فتوسنتز (غذاسازی) به گاز دی‌اکسید کربن نیاز دارند.",
+          "type": "2choice",
+          "animalId": "crocodile",
+          "options": ["صحیح است", "غلط است"],
+          "correct": 0,
+          "hint": "گیاهان دی‌اکسید کربن می‌گیرند و اکسیژن پاک می‌دهند."
+        },
+        {
+          "id": 7,
+          "text": "محیط یک مربع به ضلع ۶ سانتی‌متر چقدر است؟",
+          "type": "4choice",
+          "animalId": "bear",
+          "options": ["۱۲ سانتی‌متر", "۲۴ سانتی‌متر", "۳۶ سانتی‌متر", "۱۸ سانتی‌متر"],
+          "correct": 1,
+          "hint": "محیط مربع = ۴ × اندازه یک ضلع. پس ۴ × ۶ = ۲۴."
+        },
+        {
+          "id": 8,
+          "text": "کدام عضو بدن خون را به تمام قسمت‌ها پمپاژ می‌کند؟",
+          "type": "4choice",
+          "animalId": "owl",
+          "options": ["معده", "قلب", "ریه", "مغز"],
+          "correct": 1,
+          "hint": "قلب مثل یک تلمبه قدرتمند شبانه‌روز خون را به حرکت درمی‌آورد."
+        }
+      ];
+      renderQuestions();
+      showToast('سوالات نمونه با موفقیت بارگذاری شدند!');
+    }
+
+    // --- BULK PARSER ---
+    function parseBulkQuestions() {
+      const text = document.getElementById('bulkTextarea').value.trim();
+      if (!text) {
+        alert('لطفاً ابتدا متن سوالات را در کادر وارد کنید.');
+        return;
+      }
+
+      const blocks = text.split(/---|===/);
+      let added = 0;
+
+      blocks.forEach(block => {
+        const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        if (lines.length >= 2) {
+          let qText = lines[0].replace(/^(سوال\s*\d*\s*:?|\d+[.-])/, '').trim();
+          let options = [];
+          let correct = 0;
+
+          for (let i = 1; i < lines.length; i++) {
+            let line = lines[i];
+            let isCorrect = line.startsWith('*');
+            if (isCorrect) line = line.substring(1).trim();
+            line = line.replace(/^[الفبجدABCD\d]+[\)-.]\s*/, '').trim();
+            if (line) {
+              if (isCorrect) correct = options.length;
+              options.push(line);
+            }
+          }
+
+          if (options.length >= 2) {
+            projectData.questions.push({
+              id: Date.now() + Math.floor(Math.random() * 10000),
+              text: qText,
+              type: options.length === 2 ? '2choice' : '4choice',
+              animalId: 'all',
+              options: options,
+              correct: correct,
+              hint: ''
+            });
+            added++;
+          }
+        }
+      });
+
+      if (added > 0) {
+        renderQuestions();
+        showToast(`${added} سوال جدید اضافه شد!`);
+        switchTab('tab-questions', document.querySelectorAll('.tab-btn')[2]);
+      } else {
+        alert('فرمت متن تشخیص داده نشد.');
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function syncProjectMetadata() {
+      const titleInput = document.getElementById('gameTitle');
+      const lessonInput = document.getElementById('lessonTopic');
+      const teacherInput = document.getElementById('teacherName');
+      projectData.title = titleInput.value.trim() || titleInput.placeholder || 'ماجراجویی در جنگل شگفت‌انگیز دانایی';
+      projectData.lesson = lessonInput.value.trim() || lessonInput.placeholder || 'ریاضی و علوم شاد دبستان';
+      projectData.teacher = teacherInput.value.trim() || teacherInput.placeholder || 'آموزگار مهربان شما';
+    }
+
+    // --- EXPORT JSON ---
+    function exportJSON() {
+      syncProjectMetadata();
+      const blob = new Blob([JSON.stringify(projectData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const lessonName = projectData.lesson ? projectData.lesson.replace(/\s+/g, '_') : 'پروژه';
+      a.download = `پروژه_جنگل_${lessonName}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('پروژه ذخیره شد.');
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const data = JSON.parse(e.target.result);
+          projectData = data;
+          document.getElementById('gameTitle').value = projectData.title || '';
+          document.getElementById('lessonTopic').value = projectData.lesson || '';
+          document.getElementById('teacherName').value = projectData.teacher || '';
+          document.getElementById('initialLives').value = String(projectData.initialLives || 5);
+          document.getElementById('randomizeOrder').value = String(projectData.randomize !== false);
+          renderHeroSelection();
+          renderAnimals();
+          renderAnimalFilterOptions();
+          renderQuestions();
+          showToast('پروژه با موفقیت بارگذاری شد!');
+        } catch (err) {
+          alert('خطا در خواندن فایل JSON.');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
+    function exportHTMLGame() {
+      syncProjectMetadata();
+      if (projectData.questions.length === 0) {
+        alert('لطفاً حداقل یک سوال در بانک سوالات وارد کنید!');
+        return;
+      }
+      const fullHtml = generateClientExportHTML(projectData);
+      const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const lessonName = projectData.lesson ? projectData.lesson.replace(/\s+/g, '_') : 'دانش‌آموزان';
+      a.download = `بازی_ماجراجویی_جنگل_${lessonName}.html`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('فایل بازی مخصوص دانش‌آموزان دانلود شد!');
+    }
+
+    // --- BASE64 UTF-8 DECODER (100% RELIABLE) ---
+    function decodeBase64Utf8(base64Str) {
+      const binaryString = atob(base64Str);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      return new TextDecoder('utf-8').decode(bytes);
+    }
+
+    const BASE_GAME_TEMPLATE_B64 = "__BASE_GAME_TEMPLATE_B64__";
+
+    function generateClientExportHTML(data) {
+      const baseCode = decodeBase64Utf8(BASE_GAME_TEMPLATE_B64);
+      const serialized = JSON.stringify(data).replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
+      return baseCode.replace('__GAME_CONFIG_PLACEHOLDER__', serialized);
+    }
+
+    // --- PREVIEW ---
+    function openPreview() {
+      syncProjectMetadata();
+      if (projectData.questions.length === 0) {
+        alert('لطفاً حداقل یک سوال برای تست وارد کنید.');
+        return;
+      }
+      const fullHtml = generateClientExportHTML(projectData);
+      document.getElementById('previewIframe').srcdoc = fullHtml;
+      document.getElementById('previewModal').classList.add('open');
+    }
+
+    function closePreview() {
+      document.getElementById('previewModal').classList.remove('open');
+      document.getElementById('previewIframe').srcdoc = '';
+    }
+
+    function togglePreviewDevice() {
+      const box = document.getElementById('previewContainer');
+      box.classList.toggle('mobile-view');
+    }
+  </script>
+
+</body>
+</html>
